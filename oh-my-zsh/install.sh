@@ -14,5 +14,5 @@ if [[ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]]; the
     echo 'POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true' >>! ~/.zshrc
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
     touch ~/.p10k.zsh
-    cp "$DOTFILES_ROOT/plugins/dotfiles-walter-baidal/oh-my-zsh/.p10k.zsh" ~/.p10k.zsh
+    cp "$DOTFILES_ROOT/plugins/dotfiles-walter-baidal/p10k/.p10k.zsh" ~/.p10k.zsh
 fi
