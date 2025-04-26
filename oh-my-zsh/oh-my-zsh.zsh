@@ -8,6 +8,7 @@ fi
 ZSH_THEME="powerlevel10k/powerlevel10k"
 HIST_STAMPS="dd.mm.yyyy"
 plugins=(z git zsh-autosuggestions zsh-syntax-highlighting)
+POWERLEVEL9K_CONFIG_FILE=~/.p10k.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
