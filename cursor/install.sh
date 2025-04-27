@@ -39,6 +39,7 @@ echo "🎯 Cursor settings are now synchronized with your plugin."
 
 
 # Install Cursor extensions from extensions-list.txt
+# Install Cursor extensions from extensions-list.txt
 EXTENSIONS_LIST_PATH="$HOME/.dotfiles/plugins/dotfiles-walter-baidal/cursor/extensions-list.txt"
 FAILED_EXTENSIONS=()
 
@@ -49,26 +50,33 @@ else
   while IFS= read -r extension; do
     [[ -z "$extension" ]] && continue
 
+    # Check if the extension is already installed
     if cursor --list-extensions | grep -i -q "^$extension$"; then
       echo "✅ Extension already installed: $extension"
       continue
     fi
 
     echo "📥 Installing: $extension"
+
+    # Run the install command and capture output + exit code
     output=$(cursor --install-extension "$extension" 2>&1)
     exit_code=$?
 
-    if echo "$output" | grep -q "already installed"; then
+    # Clean up the SIGPIPE message if present
+    clean_output=$(echo "$output" | grep -v "Unexpected SIGPIPE")
+
+    if echo "$clean_output" | grep -q "already installed"; then
       echo "✅ Skipped (already installed): $extension"
     elif [[ $exit_code -eq 0 ]]; then
       echo "✅ Installed: $extension"
     else
       echo "❌ Failed to install: $extension"
-      echo "$output"
+      echo "$clean_output"
       FAILED_EXTENSIONS+=("$extension")
     fi
   done < "$EXTENSIONS_LIST_PATH"
 
+  # Final report
   if [[ ${#FAILED_EXTENSIONS[@]} -gt 0 ]]; then
     echo ""
     echo "⚠️  The following extensions failed to install:"
