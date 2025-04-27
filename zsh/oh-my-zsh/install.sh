@@ -6,6 +6,7 @@ IFS=$'\n\t'
 if [[ ! -d ~/.oh-my-zsh ]]; then
     export RUNZSH=no
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    ln -sf ~/.dotfiles/zsh/zshrc.symlink ~/.zshrc
 fi
 
 if [[ ! -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]]; then
