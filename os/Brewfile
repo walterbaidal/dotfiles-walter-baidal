@@ -1,8 +1,11 @@
+tap 'hashicorp/tap'
+
 cask 'iterm2'
 cask 'brave-browser'
 cask 'amethyst'
 cask 'bitwarden'
 cask 'spotify'
+cask 'cursor'
 
 brew 'zoxide'
 brew 'fzf'
@@ -14,3 +17,4 @@ brew 'awscli'
 brew 'tree'
 brew 'tfenv'
 brew 'thefuck'
+brew 'hashicorp/tap/terraform'
