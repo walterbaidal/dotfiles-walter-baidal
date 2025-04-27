@@ -1,6 +1,6 @@
 cask 'iterm2'
-cask 'brave-browser'
-cask 'amethyst'
+# cask 'brave-browser'
+# cask 'amethyst'
 cask 'bitwarden'
 cask 'spotify'
 
