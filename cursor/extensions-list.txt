@@ -1,5 +1,6 @@
 4ops.terraform
 hashicorp.terraform
 meezilla.json
+pkief.material-icon-theme
 supermaven.supermaven
 vadzimnestsiarenka.helm-template-preview-and-more
