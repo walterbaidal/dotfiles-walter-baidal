@@ -20,5 +20,6 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
+## Load fzf after oh-my-zsh to ensure it works properly.
 export FZF_DEFAULT_OPTS='--height=40% --preview="bat --color=always {}" --preview-window=right:60%:wrap'
 source <(fzf --zsh)
