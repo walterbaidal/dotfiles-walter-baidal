@@ -1,6 +1,6 @@
 {
-    "window.commandCenter": true,
-    "workbench.colorTheme": "Visual Studio Dark",
-    "editor.defaultFormatter": "hashicorp.terraform",
-    "editor.formatOnSave": true
+  "window.commandCenter": true,
+  "workbench.colorTheme": "Visual Studio Dark",
+  "editor.defaultFormatter": "hashicorp.terraform",
+  "editor.formatOnSave": true
 }
