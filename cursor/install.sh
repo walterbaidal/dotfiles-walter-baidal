@@ -51,11 +51,13 @@ else
       continue
     fi
 
-    if cursor --list-extensions | grep -q "^$extension$"; then
+    if cursor --list-extensions | grep -i -q "$extension"; then
       echo "✅ Extension already installed: $extension"
     else
       echo "📥 Installing: $extension"
-      if cursor --install-extension "$extension"; then
+      if cursor --install-extension "$extension" 2>&1 | tee /dev/null | grep -q "already installed"; then
+        echo "✅ Skipped (already installed): $extension"
+      elif [[ $? -eq 0 ]]; then
         echo "✅ Installed: $extension"
       else
         echo "❌ Failed to install: $extension"
