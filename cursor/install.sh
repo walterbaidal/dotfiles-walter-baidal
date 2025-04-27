@@ -11,9 +11,32 @@ mkdir -p "$CURSOR_USER_PATH"
 rm -rf "$CURSOR_USER_PATH/${SETTINGS_FILENAME}"
 rm -rf "$CURSOR_USER_PATH/${KEYBINDINGS_FILENAME}"
 
-# Link files
-ln -s $DOTFILES_CURSOR_USER_PATH/${SETTINGS_FILENAME} "$CURSOR_USER_PATH/${SETTINGS_FILENAME}"
-ln -s $DOTFILES_CURSOR_USER_PATH/${KEYBINDINGS_FILENAME} "$CURSOR_USER_PATH/${KEYBINDINGS_FILENAME}"
+# Synchronize Cursor config files from plugin if needed
+for file in "$SETTINGS_FILENAME" "$KEYBINDINGS_FILENAME"; do
+  src="$DOTFILES_CURSOR_USER_PATH/$file"
+  dest="$CURSOR_USER_PATH/$file"
+
+  if [[ ! -f "$src" ]]; then
+    echo "⚠️  Plugin file not found: $src"
+    continue
+  fi
+
+  if [[ -f "$dest" ]]; then
+    if cmp -s "$src" "$dest"; then
+      echo "✅ $file is already up-to-date. No action needed."
+      continue
+    fi
+
+    cp "$dest" "$dest.backup"
+    echo "📝 Existing $file backed up → $file.backup"
+  fi
+
+  cp "$src" "$dest"
+  echo "✅ Synced $file from plugin to Cursor config"
+done
+
+echo "🎯 Cursor settings are now synchronized with your plugin."
+
 
 # Install Cursor extensions from extensions-list.txt
 EXTENSIONS_LIST_PATH="$HOME/.dotfiles/plugins/dotfiles-walter-baidal/cursor/extensions-list.txt"

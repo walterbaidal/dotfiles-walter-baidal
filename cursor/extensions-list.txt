@@ -1,0 +1,5 @@
+4ops.terraform
+hashicorp.terraform
+meezilla.json
+supermaven.supermaven
+vadzimnestsiarenka.helm-template-preview-and-more
