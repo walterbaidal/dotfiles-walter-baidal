@@ -19,3 +19,6 @@ if [ -f /opt/homebrew/bin/brew ]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
+
+export FZF_DEFAULT_OPTS='--height=40% --preview="bat --color=always {}" --preview-window=right:60%:wrap'
+source <(fzf --zsh)
