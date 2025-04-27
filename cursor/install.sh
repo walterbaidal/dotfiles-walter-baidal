@@ -47,22 +47,29 @@ if [[ ! -f "$EXTENSIONS_LIST_PATH" ]]; then
 else
   echo "📦 Installing Cursor extensions..."
   while IFS= read -r extension; do
+    # Skip empty lines
     if [[ -z "$extension" ]]; then
       continue
     fi
 
-    if cursor --list-extensions | grep -i -q "$extension"; then
+    # Check if extension is already installed (case-insensitive match)
+    if cursor --list-extensions | grep -i -q "^$extension$"; then
       echo "✅ Extension already installed: $extension"
+      continue
+    fi
+
+    # Try to install the extension
+    echo "📥 Installing: $extension"
+    output=$(cursor --install-extension "$extension" 2>&1)
+
+    if echo "$output" | grep -q "already installed"; then
+      echo "✅ Skipped (already installed): $extension"
+    elif [[ $? -eq 0 ]]; then
+      echo "✅ Installed: $extension"
     else
-      echo "📥 Installing: $extension"
-      if cursor --install-extension "$extension" 2>&1 | tee /dev/null | grep -q "already installed"; then
-        echo "✅ Skipped (already installed): $extension"
-      elif [[ $? -eq 0 ]]; then
-        echo "✅ Installed: $extension"
-      else
-        echo "❌ Failed to install: $extension"
-        FAILED_EXTENSIONS+=("$extension")
-      fi
+      echo "❌ Failed to install: $extension"
+      echo "$output"
+      FAILED_EXTENSIONS+=("$extension")
     fi
   done < "$EXTENSIONS_LIST_PATH"
 
