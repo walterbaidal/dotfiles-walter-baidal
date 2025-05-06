@@ -4,6 +4,7 @@ cask 'amethyst'
 cask 'bitwarden'
 cask 'spotify'
 cask 'cursor'
+cask 'chatgpt'
 
 brew 'zoxide'
 brew 'fzf'
