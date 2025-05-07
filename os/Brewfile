@@ -5,6 +5,7 @@ cask 'bitwarden'
 cask 'spotify'
 cask 'cursor'
 cask 'chatgpt'
+cask 'rancher'
 
 brew 'zoxide'
 brew 'fzf'
