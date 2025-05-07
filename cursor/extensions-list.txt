@@ -1,6 +1,8 @@
 4ops.terraform
 hashicorp.terraform
 meezilla.json
+openai.chatgpt
 pkief.material-icon-theme
+shd101wyy.markdown-preview-enhanced
 supermaven.supermaven
 vadzimnestsiarenka.helm-template-preview-and-more
