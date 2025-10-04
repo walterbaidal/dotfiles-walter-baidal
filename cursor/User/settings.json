@@ -3,5 +3,9 @@
   "workbench.colorTheme": "Visual Studio Dark",
   "editor.defaultFormatter": "hashicorp.terraform",
   "editor.formatOnSave": true,
-  "workbench.iconTheme": "material-icon-theme"
+  "workbench.iconTheme": "material-icon-theme",
+  "supermaven.otherWarning": false,
+  "chatgpt.openOnStartup": true,
+  "chatgpt.cliExecutable": "",
+  "workbench.editor.editorActionsLocation": "titleBar"
 }

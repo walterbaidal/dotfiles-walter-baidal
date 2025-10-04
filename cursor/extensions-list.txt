@@ -1,8 +1,10 @@
 4ops.terraform
+gitlab.gitlab-workflow
 hashicorp.terraform
 meezilla.json
 openai.chatgpt
 pkief.material-icon-theme
+pomdtr.excalidraw-editor
 shd101wyy.markdown-preview-enhanced
 supermaven.supermaven
 vadzimnestsiarenka.helm-template-preview-and-more
